@@ -42,6 +42,7 @@ router.beforeEach((to, from, next) => {
   const userInfo = Cookies.get('userInfo')
 
   if(sId) { // 새로고침시 state에 저장
+    console.log(sId)
     // store.state.isAuthenticated = true
     // store.state.sessionId = sId
     // store.state.userInfo = userInfo ? JSON.parse(userInfo) : null
