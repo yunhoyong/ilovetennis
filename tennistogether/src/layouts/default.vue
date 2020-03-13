@@ -1,32 +1,6 @@
 <template>
-  <el-container>
-    
-  </el-container>
+  <div>
+    <router-view/>
+    <p>This is a default layout</p>
+  </div>
 </template>
-
-<script>
-
-export default {
-  metaInfo() {
-    
-  },
-  name: 'Layout',
-
-  components: {
-  },
-  data: () => ({
-    
-  }),
-  computed: {
-    
-  },
-  async created() {
-  },
-  mounted() {
-    
-  },
-  methods: {
-    
-  }
-}
-</script>
