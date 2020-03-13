@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <el-main>
-      guide
+      <p>This is a guid layout</p>
     </el-main>
   </el-container>
 </template>
