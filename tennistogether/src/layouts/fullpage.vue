@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <!-- <router-view /> -->
-    <p>This is a fullpage layout</p>
+    <router-view />
   </div>
 </template>

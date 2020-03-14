@@ -1,0 +1,163 @@
+@mixin font-face($family,$file,$weight,$style:normal){
+  $path : '~@/assets/fonts/' + $file;
+}
+
+// TODO - 디자인가이드에 정의된 폰트룰(A,B,C...)대로 적용된 글꼴설정 
+@mixin fontCall($fontRule, $color:#000) {
+  font-family: map-get($fontRule, name);
+  font-size: map-get($fontRule, size);
+  font-weight: map-get($fontRule, weight);
+  line-height: map-get($fontRule, linegap);
+  letter-spacing: (map-get($fontRule, spacing) / 1000) * 16px;
+}
+
+
+// Title 
+@mixin heading($title_size, $letter_spacing:1) {
+    @if $title_size == 56px {
+        line-height: 72px / 56px;
+    } @else {
+        line-height: $title_size + 12px;
+    }
+    font-size: $title_size;
+    font-weight: normal;
+    letter-spacing: ( $letter_spacing / 1000 ) * 16px; // PSD to letter-spacing
+}
+
+// Font Attribute Set
+@mixin fontSet($font_name:$--base-font-text, $font_size:$--base-font-size, $letter_spacing:1, $color:inherit, $lineheight:100%) {
+    font-family: $font_name;
+    font-size: $font_size;
+    letter-spacing: ( $letter_spacing / 1000 ) * 16px;
+    color: $color;
+    line-height: $lineheight;
+}
+
+// Box Element Set
+@mixin boxSet($w, $h, $bdrs, $c, $bg:none) {
+    width: $w;
+    height: $h;
+    border-radius: $bdrs;
+    color: $c;
+    background-color: $bg;
+}
+
+// flex box Set
+@mixin flex($jc:center, $ai:center) {
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+
+// Convert functions
+@mixin psd2ls($letter_spacing) {
+    letter-spacing: ( $letter_spacing / 1000 ) * 16px; // PSD to letter-spacing
+}
+
+@mixin placeholder {
+  &:-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &::placeholder {
+    @content;
+  }
+}
+
+/* 임시 common */
+@mixin clearflex {
+  &::after {
+      content: "";
+      display: block;
+      clear: both;
+  }
+}
+@mixin btn_icon {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+}
+@mixin btn_link {
+  &::after {
+      @include btn_icon();
+      width: 11px;
+      height: 11px;
+      margin: -1px 0 0 13px;
+      background: url('~@/assets/images/ico.png') no-repeat;
+      background-position: 0 -19px;
+      border: none;
+      -o-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);                        
+  }
+}
+
+// 문자열 줄임 (...)
+@mixin strEllipse ($fontSize:12px, $lineClamp:1, $lineHeight:1) {
+  display: -webkit-box;
+  height: calc((#{$fontSize} * #{$lineHeight}) * #{$lineClamp});
+  font-size: $fontSize;
+  line-height: 1;
+  -webkit-line-clamp: $lineClamp;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// TODO - Arrow Generator
+@mixin arrowDraw ($w, $h, $borderWidth, $color, $direction) {
+  display: inline-block;
+  width: $w;
+  height: $h;
+  border: $borderWidth solid $color;
+
+  @if $direction == left {
+    border-top: 0;
+    border-right: 0;
+    transform: rotate(45deg);
+  }
+  @else if $direction == right {
+    border-bottom: 0;
+    border-left: 0;
+    transform: rotate(45deg);
+  }
+  @else if $direction == top {
+    border-bottom: 0;
+    border-right: 0;
+    transform: rotate(45deg);
+  }
+  @else if $direction == bottom {
+    border-top: 0;
+    border-left: 0;
+    transform: rotate(45deg);
+  }  
+}
+
+// TODO - Card List 
+@mixin cardList ($min-width, $gutter, $cols) {
+  .list-card {
+    display: flex;
+    flex: wrap;
+    margin-top: -$gutter;
+    overflow: hidden;
+    > li {
+      width: calc(100% / #{$cols});
+      margin-left: $gutter;
+      margin-top: $gutter;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}

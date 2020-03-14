@@ -1,0 +1,135 @@
+/* Base Font */
+$--base-font-size: 16px !default;
+$--base-font-color: #666;
+
+
+// Font Set - for PC
+$fontA: (
+  "size": 58px,
+  "spacing": -25,
+  "linegap": 68px
+);
+$fontB: (
+  "size": 44px,
+  "spacing": -25,
+  "linegap": 58px,
+  "weight": normal
+);
+$fontC: (
+  "size": 30px,
+  "spacing": -25,
+  "linegap": 44px,
+  "weight": normal
+);
+$fontD: (
+  "size": 20px,
+  "spacing": -25,
+  "linegap": 34px,
+  "weight": normal
+);
+$fontE: (
+  "size": 16px,
+  "spacing": -25,
+  "linegap": 30px
+  // "weight": 500
+);
+$fontF: (
+  "size": 16px,
+  "spacing": -25,
+  "linegap": 30px,
+  // "weight": normal
+);
+$fontG: (
+  "size": 14px,
+  "spacing": -25,
+  "linegap": 28px,
+  // "weight": 500
+);
+$fontH: (
+  "size": 14px,
+  "spacing": -25,
+  "linegap": 28px,
+  // "weight": normal
+);
+$fontI: (
+  "size": 12px,
+  "spacing": 0,
+  "linegap": 18px,
+  // "weight": normal
+);
+$fontJ: (
+  "size": 12px,
+  "spacing": 18,
+  "linegap": 0,
+  // "weight": 500
+);
+
+/* Base Color */
+$--base-color-black: #000000;
+$--base-color-blue: #002c5e;
+$--base-color-sand: #e4dcd3;
+$--base-color-lightsand: #f6f3f2;
+$--base-color-white: #ffffff;
+$--base-color-activeblue: #00aad2;
+//$--base-color-gold: #a36b4f;
+//$--base-color-skyblue: #aacae6;
+//$--base-color-active-red: #e63312;
+$--base-color-sub: #666666;
+$--base-color-gray: #f5f5f5;
+$--base-color-bluegray: #edf2f7;
+$--base-color-disable: #cecdca;
+
+/* 견적 Colors */
+$--base-color-deepsky: #0198bd;
+$--base-color-bluesky: #4671cf;
+$--base-color-apple: #72b816;
+$--base-color-dgray: #7c8191;
+$--base-color-sub2: #4a4a4a;
+$--base-color-point2: #84aac8;
+$--base-color-lightblue: #ebf2f9;
+$--base-color-lightblue2: #f1f5f9;
+
+// text-color
+$--text-color-black:$--base-color-black;
+$--text-color-sub:$--base-color-sub; 
+$--text-color-blue:$--base-color-blue;
+$--text-color-sand:$--base-color-sand; 
+$--text-color-activeblue:$--base-color-activeblue;
+
+// background
+$--background-color-white: $--base-color-white;
+$--background-color-lightsand: $--base-color-lightsand;
+$--background-color-sand: #c5b098;
+$--background-color-gray: #f5f5f5;
+$--background-color-bluegray: #edf2f7;
+
+/* Background colors */
+$--popup-bg-color: #fff;
+
+/* Title */
+$--title-k1-size: 58px;
+$--title-k2-size: 16px;
+$--title-h1-size: 44px;
+$--title-s1-size: 16px;
+$--title-h2-size: 30px;
+$--title-h3-size: 20px;
+
+/* Text */
+$--text-b1-size: 16px;
+$--text-c1-size: 14px;
+$--text-c2-size: 12px;
+
+/* Button Color */
+$--btn-other-bg: #ededed;
+
+
+/* Icon images URL */
+
+
+/* Bullet images URL */
+
+
+
+
+
+

@@ -1,5 +1,24 @@
 <template>
   <section>
+    <!-- <div class="breadcrumb">
+      <ul>
+        <li>
+          <router-link :to="'/'">
+            홈
+          </router-link>
+        </li>
+        <li>
+          <router-link :to="'/'">
+            ERROR PAGE
+          </router-link>
+        </li>
+        <li>
+          <router-link :to="'/'">
+            404
+          </router-link>
+        </li>
+      </ul>
+    </div> -->
     <div style="height: 100vh;">
       <div class="error-wrap">
         <h2>페이지를 찾을 수 없습니다.</h2>
@@ -21,7 +40,7 @@ export default {
   name: 'Error404',
   layout: 'fullpage',
   methods: {
-    goHome() {
+    goHome () {
       this.$router.push('/main')
     }
   }

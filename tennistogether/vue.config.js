@@ -16,15 +16,15 @@ module.exports = {
   //     }
   //   }
   // },
-  // css: {
-  //   loaderOptions: {
-  //     sass: {
-  //       data: `
-  //         @import '~/assets/style/common/var.scss';
-  //       `
-  //     }
-  //   }
-  // },
+  css: {
+    loaderOptions: {
+      sass: {
+        data: `
+          @import '~/assets/style/common/var.scss';
+        `
+      }
+    }
+  },
   chainWebpack: config => {
     // this path is specific to my project
     config.resolve.alias.set('~', path.join(__dirname, 'src'))
