@@ -50,7 +50,6 @@ router.beforeEach((to, from, next) => {
   }
 
   if (to.name === 'login') { // 로그인 페이지로 갈 경우
-    // console.log(store.state.isAuthenticated)
     if (!store.getters.isAuthenticated) { // 인증 정보가 없다면 로그인 페이지로
       next()
     } else {
@@ -60,7 +59,6 @@ router.beforeEach((to, from, next) => {
     }
   } else { // 로그인 페이지외의 페이지로 갈 경우
     if (store.getters.isAuthenticated) { // 인증 정보가 있다면
-      console.log(to, from)
       if (to && to.params && to.params.isNewTab === true) { // 새창 띄우기
         const route = router.resolve({ name: to.name })
         window.open(route.href, '_blank')
@@ -69,7 +67,6 @@ router.beforeEach((to, from, next) => {
         if (from && from.query && from.query.isNewTab) { // 새창으로 띄운화면에서
           next(false)
         } else {
-          console.log(to)
           if (to.path === '/') {
             // <!-- GRANDOPEN  -->
             next('/main')
