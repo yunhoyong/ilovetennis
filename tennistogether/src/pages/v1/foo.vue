@@ -13,6 +13,6 @@
 <script>
 export default {
   name: 'foo',
-  layout: 'default',
+  layout: 'default'
 }
 </script>

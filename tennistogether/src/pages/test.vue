@@ -1,9 +1,9 @@
 <template>
   <section>
-    <div id="login">
+    <div id="test">
       <el-container>
         <el-main>
-          foo !!!!!!!!!!
+          test !!!!!!!!!!
         </el-main>
       </el-container>
     </div>
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'login',
+  name: 'test',
   layout: 'default'
 }
 </script>

@@ -26,7 +26,7 @@ module.exports = {
   //   }
   // },
   chainWebpack: config => {
-    //this path is specific to my project
+    // this path is specific to my project
     config.resolve.alias.set('~', path.join(__dirname, 'src'))
   },
 

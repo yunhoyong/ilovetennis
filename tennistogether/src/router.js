@@ -5,7 +5,7 @@ import { createRouterLayout } from 'vue-router-layout'
 import Cookies from 'js-cookie'
 
 Vue.use(Router)
-
+console.log(routes)
 const RouterLayout = createRouterLayout(layout => {
   return import('@/layouts/' + layout + '.vue')
 })
@@ -37,14 +37,18 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  console.log(to, from, next)
   const sId = Cookies.get('sessionId')
   const userInfo = Cookies.get('userInfo')
 
-  if(sId) { // 새로고침시 state에 저장
-    console.log(sId)
+  console.log(sId)
+  console.log(userInfo)
+  if (sId) { // 새로고침시 state에 저장
     // store.state.isAuthenticated = true
     // store.state.sessionId = sId
     // store.state.userInfo = userInfo ? JSON.parse(userInfo) : null
   }
+  if (!to.matched.length) { // 404 Error check
+    next('/error/error404')
+  }
+  next('/login')
 })

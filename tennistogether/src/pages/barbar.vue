@@ -1,5 +1,5 @@
 <template>
-  <div id="bar">
+  <div id="barbar">
   <el-container>
     <el-main>
       bar!!!!!!!!!!!!!!!
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'bar',
-  layout: 'default',
+  name: 'barbar',
+  layout: 'default'
 }
 </script>
