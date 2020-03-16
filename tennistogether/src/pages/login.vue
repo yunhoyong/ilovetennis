@@ -1,187 +1,159 @@
 <template>
-  <section>
-    <div id="login">
-      <div class="loginWrap">
-        <div class="logo">
+  <div id="app">
+    <b-navbar toggleable="md" type="dark" class="nav-background">
+
+    <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+
+    <b-navbar-brand href="#">NavBar</b-navbar-brand>
+
+    <b-collapse is-nav id="nav_collapse">
+
+    <b-navbar-nav>
+      <b-nav-item href="#">Link</b-nav-item>
+      <b-nav-item href="#" disabled>Disabled</b-nav-item>
+    </b-navbar-nav>
+
+    <!-- Right aligned nav items -->
+    <b-navbar-nav class="ml-auto">
+
+      <b-nav-form>
+        <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
+        <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
+      </b-nav-form>
+
+      <b-nav-item-dropdown text="Lang" right>
+        <b-dropdown-item href="#">EN</b-dropdown-item>
+        <b-dropdown-item href="#">ES</b-dropdown-item>
+        <b-dropdown-item href="#">RU</b-dropdown-item>
+        <b-dropdown-item href="#">FA</b-dropdown-item>
+      </b-nav-item-dropdown>
+
+      <b-nav-item-dropdown right>
+        <!-- Using button-content slot -->
+        <template slot="button-content">
+          <em>User</em>
+        </template>
+        <b-dropdown-item href="#">Profile</b-dropdown-item>
+        <b-dropdown-item href="#">Signout</b-dropdown-item>
+      </b-nav-item-dropdown>
+    </b-navbar-nav>
+  </b-collapse>
+</b-navbar>
+
+  <b-container>
+    <b-row align-h="center" class="mt-5">
+      <b-col cols="5">
+        <b-card class="p-3">
+          <h3 class="mb-4">Login</h3>
+          <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+      <b-form-group id="exampleInputGroup1"
+                    label="Email address:"
+                    label-for="exampleInput1"
+                    >
+        <b-form-input id="exampleInput1"
+                      type="email"
+                      v-model="form.email"
+                      required
+                      placeholder="Enter email">
+        </b-form-input>
+      </b-form-group>
+      <b-form-group id="exampleInputGroup2"
+                    label="Password:"
+                    label-for="exampleInput2">
+        <b-form-input id="exampleInput2"
+                      type="password"
+                      v-model="form.password"
+                      required
+                      placeholder="Enter name">
+        </b-form-input>
+      </b-form-group>
+
+      <b-form-group id="exampleGroup4">
+        <b-form-checkbox-group v-model="form.checked" id="exampleChecks">
+          <b-form-checkbox value="remember">Remember me</b-form-checkbox>
+        </b-form-checkbox-group>
+      </b-form-group>
+      <div class="d-flex justify-content-between">
+        <div>
+          <b-button type="submit" variant="primary">Submit</b-button>&nbsp;
+          <b-button type="reset" variant="danger">Reset</b-button>
         </div>
-        <div class="login-form-wrap">
-          <h3>테니스</h3>
-          <el-form
-            ref="ruleForm"
-            :model="ruleForm"
-            class="login-form"
-          >
-            <el-row>
-              <el-col :span="24">
-                <el-form-item
-                  label=""
-                  prop="id"
-                >
-                  <template>
-                    아이디<br>
-                  </template>
-                  <el-input
-                    v-model="ruleForm.uid"
-                    class="login-input"
-                    placeholder="아이디을 입력하세요."
-                    @blur="ruleForm.uid = $event.target.value"
-                    @keyup.native.enter="loginAction"
-                  />
-                </el-form-item>
-              </el-col>
-              <el-col :span="24">
-                <el-form-item
-                  label=""
-                  prop="pwd"
-                >
-                  <template>
-                    비밀번호<br>
-                  </template>
-                  <el-input
-                    v-model="ruleForm.pwd"
-                    class="login-input"
-                    type="password"
-                    placeholder="비밀번호를 입력하세요."
-                    @keyup.native.enter="loginAction"
-                  />
-                  <div
-                    v-if="isCapsLock"
-                    class="capslock-pop"
-                  >
-                    <div class="capslock-pop-wrap">
-                      <span>Caps Lock이 켜져 있습니다.</span>
-                    </div>
-                  </div>
-                </el-form-item>
-              </el-col>
-              <el-col :span="24">
-                <el-checkbox
-                  v-model="checkedId"
-                >
-                  아이디 저장
-                </el-checkbox>
-              </el-col>
-            </el-row>
-            <el-row>
-              <el-col :span="24">
-                <div class="privTxt">
-                  이 시스템에서 제공되는 모든 고객정보는 개인정보
-                  보호지침에 따라 당사의 영업 및 고객 관리목적에
-                  한정하여 사용되어야 하며, 개인정보를 타인에게
-                  누설하거나 제공되는 것을 절대 금지하고 있습니다.
-                </div>
-              </el-col>
-              <el-col :span="24">
-                <el-checkbox v-model="checkedAgree">
-                  동의함
-                </el-checkbox>
-              </el-col>
-            </el-row>
-            <el-row>
-              <el-button
-                type="primary"
-                class="loginBtn"
-                @click="loginAction"
-              >
-                로그인
-              </el-button>
-            </el-row>
-          </el-form>
+        <div>
+          <a href="#" v-b-modal.modal1>Forgot Password</a>
         </div>
       </div>
-    </div>
-    <!-- message Popup -->
-    <pop-message
-      :pop-visible.sync="alertMessagePop"
-      :pop-message.sync="alertMessage"
-      :pop-sub-message.sync="alertSubMessage"
-      sub-message-style="font-size: 12px;"
-      @confirm="alertMessagePop = false"
-      @close="alertMessagePop = false"
-    />
-  </section>
+    </b-form>
+        </b-card>
+      </b-col>
+    </b-row>
+  </b-container>
+
+  <b-modal id="modal1" title="Forgot Password">
+      <b-img src="https://ih0.redbubble.net/image.418429827.6579/ap,550x550,12x16,1,transparent,t.u4.png" fluid alt="Responsive image" />
+    </b-modal>
+
+  </div>
 </template>
 
 <script>
-// import PopMessage from '~/components/popup/PopMessage.vue'
-
 export default {
-  name: 'Login',
-  layout: 'fullpage',
+  name: 'app',
   components: {
-    // PopMessage
   },
   data () {
     return {
-      alertMessage: '',
-      alertSubMessage: '',
-      alertMessagePop: false,
-      ruleForm: {
-        uid: '',
-        pwd: ''
+      items: [
+        { isActive: true, age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
+        { isActive: false, age: 21, first_name: 'Larsen', last_name: 'Shaw' },
+        { isActive: false, age: 89, first_name: 'Geneva', last_name: 'Wilson' },
+        { isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney' }
+      ],
+      showDismissibleAlert: false,
+      form: {
+        email: '',
+        password: '',
+        food: null,
+        checked: []
       },
-      checkedId: false, // 아이디 저장 체크
-      checkedAgree: false, // 동의함 체크
-      isCapsLock: false
+      foods: [
+        { text: 'Select One', value: null },
+        'Carrots', 'Beans', 'Tomatoes', 'Corn'
+      ],
+      show: true
     }
-  },
-  mounted () {
-    //  --for CHECK - 환경설정 파일 확인
-    console.log(process.env)
-
-    if (localStorage.getItem('copyId')) {
-      this.ruleForm.uid = localStorage.getItem('copyId')
-    }
-    document.msCapsLockWarningOff = true
-    window.addEventListener('keydown', this.onKeyCapsLock)
   },
   methods: {
-    // CapsLock
-    onKeyCapsLock (e) {
-      this.isCapsLock = e.getModifierState('CapsLock')
+    handleClick () {
+      this.showDismissibleAlert = true
     },
-    loginAction () { // 로그인
-      const { uid, pwd } = this.ruleForm
-      if (!uid) {
-        this.alertMessage = '아이디를 입력해주세요.'
-        this.alertMessagePop = true
-        return
-      }
-
-      if (!pwd) {
-        this.alertMessage = '비밀번호를 입력해주세요.'
-        this.alertMessagePop = true
-        return
-      }
-
-      if (!this.checkedAgree) {
-        this.alertMessage = '개인정보 보호 동의를 확인해주세요.'
-        this.alertMessagePop = true
-        return
-      }
-
-      if (this.checkedId) { // `아이디 저장` 버튼을 체크했을 경우
-        window.localStorage.setItem('copyId', uid)
-      } else {
-        if (!window.localStorage.getItem('copyId')) {
-          window.localStorage.removeItem('copyId')
-        }
-      }
-      this.$store.dispatch('login', { vm: this, uid, pwd }).then((res) => {
-        const { rspCode = '', rspMessage = '', rspStatus = '' } = res
-        if (!rspStatus && rspCode !== '0000') {
-          this.alertMessage = '로그인이 실패했습니다.'
-          this.alertSubMessage = rspMessage || ''
-          this.alertMessagePop = true
-          return
-        }
-        this.$router.push('/main')
-      })
+    onSubmit (evt) {
+      evt.preventDefault()
+      alert(JSON.stringify(this.form))
+    },
+    onReset (evt) {
+      evt.preventDefault()
+      /* Reset our form values */
+      this.form.email = ''
+      this.form.password = ''
+      this.form.food = null
+      this.form.checked = []
+      /* Trick to reset/clear native browser form validation state */
+      this.show = false
+      this.$nextTick(() => { this.show = true })
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
-@import '~/assets/style/pages/login.scss';
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+  body {
+    background: #EEF1F4 !important;
+    font-family: 'Lato', sans-serif !important;
+  }
+
+  .nav-background {
+    background: #353535;
+  }
 </style>

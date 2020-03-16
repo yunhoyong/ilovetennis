@@ -1,6 +1,7 @@
 <template>
   <section>
     <div>
+      main
     </div>
   </section>
 </template>
@@ -9,7 +10,7 @@
 
 export default {
   name: 'Main',
-  layout: 'fullpage',
+  layout: 'default',
   methods: {
   }
 }
