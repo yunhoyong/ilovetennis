@@ -1,21 +1,6 @@
 const path = require('path')
 const ansiRegex = require('ansi-regex')
 module.exports = {
-  // outputDir: '../ep-exclusive-service/src/main/resources/static',
-  // devServer: {
-  //   // publicPath: '/',
-  //   port: 3002,
-  //   proxy: {
-  //     '^/api': {
-  //       target: 'http://localhost:8106',
-  //       ws: true,
-  //       pathRewrite: {
-  //         '^/exclusive/api' : '/api'
-  //       },
-  //       changeOrigin: true
-  //     }
-  //   }
-  // },
   css: {
     loaderOptions: {
       sass: {

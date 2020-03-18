@@ -189,7 +189,6 @@ export default new Vuex.Store({
           commit('setSessionId', sessionId) // state sessionId 저장
           await dispatch('loadUserInfo', { vm, sessionId })
           // header set - first load
-          vm.$https.defaultHeaders['ep-jsessionid'] = sessionId
         }
         console.log('response => ', res)
         return res

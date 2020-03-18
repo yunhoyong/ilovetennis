@@ -75,10 +75,6 @@ class Https {
   // POST
   async post (url = '', data = {}, customErr, service, customOption = {}, customHeaders = {}) {
     const baseUrl = service ? this.baseUrls[service] : this.baseUrls.exclusive
-
-    const currPath = store.state.currPath || '/'
-    if (currPath) { customHeaders['ep-menu-id'] = currPath }
-
     this.onError = customErr || this.onError
     const res = await this._axios(customOption, customHeaders)
       .post(`${baseUrl}${url.startsWith('/') ? '' : '/'}${url}`, data)
@@ -110,9 +106,6 @@ class Https {
   async put (url = '', data = {}, customErr, service, customOption = {}, customHeaders = {}) {
     const baseUrl = service ? this.baseUrls[service] : this.baseUrls.exclusive
 
-    const currPath = store.state.currPath || '/'
-    if (currPath) { customHeaders['ep-menu-id'] = currPath }
-
     this.onError = customErr || this.onError
     const res = await this._axios(customOption, customHeaders)
       .post(`${baseUrl}${url.startsWith('/') ? '' : '/'}${url}${url.indexOf('?') > -1 ? '&' : '?'}_method=put`, data)
@@ -127,9 +120,6 @@ class Https {
   // DELETE (post에 method=delete)
   async delete (url = '', data = {}, params = {}, customErr, service, customOption = {}, customHeaders = {}) {
     const baseUrl = service ? this.baseUrls[service] : this.baseUrls.exclusive
-
-    const currPath = store.state.currPath || '/'
-    if (currPath) { customHeaders['ep-menu-id'] = currPath }
 
     this.onError = customErr || this.onError
     const res = await this._axios(customOption, customHeaders)
