@@ -1,9 +1,5 @@
 <template>
-  <el-container>
-    <el-main>
-      <p>This is a guid layout</p>
-    </el-main>
-  </el-container>
+  <p>This is a guid layout</p>
 </template>
 
 <script>
@@ -15,7 +11,6 @@ export default {
 
   computed: {
     ...mapGetters({
-      // menuList: 'menuList'
     })
   }
 }

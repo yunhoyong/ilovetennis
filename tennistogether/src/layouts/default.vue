@@ -1,29 +1,5 @@
 <template>
-  <el-container>
-    <el-header
-      v-show="showHeader"
-      height="70px"
-    >
-    <header-comp
-        :data="menuList"
-        @showside="showMenuToggle"
-        @showfav="showFavToggle"
-    />
-    </el-header>
-    <el-container :class="{widthFix : showMenu || showFav}">
-      <div
-        v-show="showMenu"
-        class="transition-box"
-      >
-        <el-aside width="240px">
-          <sidebar-comp :data="sideMenu" />
-        </el-aside>
-      </div>
-      <el-main>
-        <router-view/>
-      </el-main>
-    </el-container>
-    </el-container>
+    <router-view/>
 </template>
 
 <script>

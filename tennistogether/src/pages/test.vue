@@ -1,11 +1,7 @@
 <template>
   <section>
     <div id="test">
-      <el-container>
-        <el-main>
-          test !!!!!!!!!!
-        </el-main>
-      </el-container>
+      test !!!!!!!!!!
     </div>
   </section>
 </template>
