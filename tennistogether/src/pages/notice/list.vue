@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+  <v-md-date-range-picker :defaultPresets="this.defaultPresets" ></v-md-date-range-picker>
     <b-card
     header="클럽 공지사항"
     style="max-width: 400rem; margin: auto; margin-top: 10vh;"
@@ -13,10 +14,14 @@
 
 <script>
 import moment from 'moment'
-import { BIconArrowDown } from 'bootstrap-vue'
+// import VMdDateRangePicker from 'v-md-date-range-picker'
 
 export default {
   name: 'hello',
+  layout: 'default',
+  components: {
+    // VMdDateRangePicker
+  },
   data: () => {
     return {
       toDoItems: [],
@@ -25,6 +30,32 @@ export default {
         size: 10,
         total: 0
       },
+      defaultPresets: [
+        {
+          label: '오늘'
+          // range: this.getRange(0, 0)
+        },
+        {
+          label: '어제'
+          // range: this.getRange(1, 1)
+        },
+        {
+          label: '지난 7일'
+          // range: this.getRange(6, 0)
+        },
+        {
+          label: '지난 30일'
+          // range: this.getRange(29, 0)
+        },
+        {
+          label: '이번달'
+          // range: this.getRange(0, 0, 'month')
+        },
+        {
+          label: '저번달'
+          // range: this.getRange(1, 1, 'month')
+        }
+      ],
       fields: [
         {
           key: 'noticeSerialNumber',
@@ -74,6 +105,12 @@ export default {
     this.getNoticeList()
   },
   methods: {
+    // getRange (startOffset = 0, endOffset = 0, period = 'day') {
+    //   return [
+    //     moment().subtract(startOffset, period).startOf(period),
+    //     moment().subtract(endOffset, period).endOf(period)
+    //   ]
+    // },
     async getNoticeList () {
       const { page, size } = this.$data.pageInfo
       const params = {
@@ -91,9 +128,18 @@ export default {
         this.toDoItems.map((items, idx) => {
           items.noticeDt = moment(items.noticeStartDt).format('YYYY-MM-DD') + ' ~ ' + moment(items.noticeEndtDt).format('YYYY-MM-DD')
           items.noticeSerialNumber = res.data.total - res.data.endRow + this.toDoItems.length - idx
-          items.fileYn = BIconArrowDown
+          // items.fileYn = BIconArrowDown
         })
       }
+    },
+    update (values) {
+      this.$router.push({
+        query: Object.assign({}, this.$route.query, {
+          to: values.to,
+          from: values.from,
+          panel: values.panel
+        })
+      })
     }
   }
 }

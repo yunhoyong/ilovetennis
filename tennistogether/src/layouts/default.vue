@@ -3,15 +3,17 @@
 </template>
 
 <script>
+
 export default {
   metaInfo () {
-    const $this = this
     return {
-      title: $this.currentMenu.menuName || '임직원 차량구매 지원시스템'
+      title: 'TENNIS TOGETHER'
     }
   },
   name: 'Layout',
 
+  components: {
+  },
   data: () => ({
     showMenu: true,
     showFav: false,
