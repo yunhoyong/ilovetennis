@@ -1,7 +1,11 @@
 <template>
   <div class="hello">
-   <!-- :calendarRanges.sync="defaultPresets" */ -->
-  <v-md-date-range-picker ></v-md-date-range-picker>
+   <!-- :presets.sync="defaultPresets" */ -->
+   <label>게시기간 : </label>
+  <v-md-date-range-picker
+  :presets="selectPeriod"
+  :showActivatorLabel=false
+  :pickerVisible=true></v-md-date-range-picker>
     <b-card
     header="클럽 공지사항"
     style="max-width: 400rem; margin: auto; margin-top: 10vh;"
@@ -15,13 +19,20 @@
 
 <script>
 import moment from 'moment'
-// import vMdDateRangePicker from 'v-md-date-range-picker'
+// import { rangePicker } from 'v-md-date-range-picker'
+
+function getRange (startOffset = 0, endOffset = 0, period = 'day') {
+  return [
+    moment().subtract(startOffset, period).startOf(period),
+    moment().subtract(endOffset, period).endOf(period)
+  ]
+}
 
 export default {
   name: 'hello',
   layout: 'default',
   components: {
-    // vMdDateRangePicker
+    // VMdDateRangePicker
   },
   props: {
 
@@ -34,30 +45,30 @@ export default {
         size: 10,
         total: 0
       },
-      defaultPresets: [
+      selectPeriod: [
         {
           label: '오늘',
-          range: this.vMdDateRangePicker.getRange(0, 0)
+          range: getRange(0, 0)
         },
         {
           label: '어제',
-          range: this.vMdDateRangePicker.getRange(1, 1)
+          range: getRange(1, 1)
         },
         {
           label: '지난 7일',
-          range: this.vMdDateRangePicker.getRange(6, 0)
+          range: getRange(6, 0)
         },
         {
           label: '지난 30일',
-          range: this.vMdDateRangePicker.getRange(29, 0)
+          range: getRange(29, 0)
         },
         {
           label: '이번달',
-          range: this.vMdDateRangePicker.getRange(0, 0, 'month')
+          range: getRange(0, 0, 'month')
         },
         {
           label: '저번달',
-          range: this.vMdDateRangePicker.getRange(1, 1, 'month')
+          range: getRange(1, 1, 'month')
         }
       ],
       fields: [

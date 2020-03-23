@@ -7,10 +7,10 @@ import Https from './https'
 import './styles.scss'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-import vMdDateRangePicker from 'v-md-date-range-picker'
+import VMdDateRangePicker from 'v-md-date-range-picker'
 
+Vue.use(VMdDateRangePicker)
 Vue.use(BootstrapVue)
-Vue.use(vMdDateRangePicker)
 Vue.config.productionTip = false
 Vue.prototype.$https = new Https()
 
