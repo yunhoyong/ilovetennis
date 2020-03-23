@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
-  <v-md-date-range-picker :defaultPresets="this.defaultPresets" ></v-md-date-range-picker>
+   <!-- :calendarRanges.sync="defaultPresets" */ -->
+  <v-md-date-range-picker ></v-md-date-range-picker>
     <b-card
     header="클럽 공지사항"
     style="max-width: 400rem; margin: auto; margin-top: 10vh;"
@@ -14,13 +15,16 @@
 
 <script>
 import moment from 'moment'
-// import VMdDateRangePicker from 'v-md-date-range-picker'
+// import vMdDateRangePicker from 'v-md-date-range-picker'
 
 export default {
   name: 'hello',
   layout: 'default',
   components: {
-    // VMdDateRangePicker
+    // vMdDateRangePicker
+  },
+  props: {
+
   },
   data: () => {
     return {
@@ -32,28 +36,28 @@ export default {
       },
       defaultPresets: [
         {
-          label: '오늘'
-          // range: this.getRange(0, 0)
+          label: '오늘',
+          range: this.vMdDateRangePicker.getRange(0, 0)
         },
         {
-          label: '어제'
-          // range: this.getRange(1, 1)
+          label: '어제',
+          range: this.vMdDateRangePicker.getRange(1, 1)
         },
         {
-          label: '지난 7일'
-          // range: this.getRange(6, 0)
+          label: '지난 7일',
+          range: this.vMdDateRangePicker.getRange(6, 0)
         },
         {
-          label: '지난 30일'
-          // range: this.getRange(29, 0)
+          label: '지난 30일',
+          range: this.vMdDateRangePicker.getRange(29, 0)
         },
         {
-          label: '이번달'
-          // range: this.getRange(0, 0, 'month')
+          label: '이번달',
+          range: this.vMdDateRangePicker.getRange(0, 0, 'month')
         },
         {
-          label: '저번달'
-          // range: this.getRange(1, 1, 'month')
+          label: '저번달',
+          range: this.vMdDateRangePicker.getRange(1, 1, 'month')
         }
       ],
       fields: [
@@ -105,12 +109,6 @@ export default {
     this.getNoticeList()
   },
   methods: {
-    // getRange (startOffset = 0, endOffset = 0, period = 'day') {
-    //   return [
-    //     moment().subtract(startOffset, period).startOf(period),
-    //     moment().subtract(endOffset, period).endOf(period)
-    //   ]
-    // },
     async getNoticeList () {
       const { page, size } = this.$data.pageInfo
       const params = {

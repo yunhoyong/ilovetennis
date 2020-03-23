@@ -180,7 +180,7 @@ export default new Vuex.Store({
     },
     login: async ({ dispatch, commit }, { vm, uid, pwd }) => {
       const body = { id: uid, password: pwd }
-      const [res, err] = await vm.$https.post('/common/v1/common/login-exclusive/id', body, null, 'gateway')
+      const [res, err] = await vm.$https.post('/', body, null, 'gateway')
       if (!err) {
         const { result = '', sessionId = '' } = res.data
 
@@ -197,7 +197,7 @@ export default new Vuex.Store({
       }
     },
     logout: async ({ commit }, { vm }) => {
-      await vm.$https.put('/common/v1/common/login/logout', null, null, 'gateway')
+      await vm.$https.put('/', null, null, 'gateway')
       Cookies.remove('sessionId')
       Cookies.remove('userInfo')
       commit('setSessionId', null)
@@ -211,7 +211,7 @@ export default new Vuex.Store({
       if (sId) { sessionId = sId }
 
       const params = {
-        sessionId: 'exclusive-' + sessionId
+        sessionId: 'tennisTogether-' + sessionId
       }
       console.log(params)
       const [res, err] = await vm.$https.get('/common/v1/session/attributes', params, null, 'gateway')
@@ -226,17 +226,6 @@ export default new Vuex.Store({
         Cookies.remove('userInfo')
         commit('setSessionId', null)
         commit('setAuth', false)
-      }
-    },
-
-    // eslint-disable-next-line no-unused-vars
-    loadMenuList: async ({ commit, state }, { vm }) => {
-      // if(state.menuList.length>0) return
-      const [res, err] = await vm.$https.get('/v1/exclusive/menu')
-      if (!err) {
-        console.log('menuList => ', res.data)
-        const menus = res.data // before customise menu
-        commit('setOriginMenus', menus)
       }
     }
   }

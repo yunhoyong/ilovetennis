@@ -7,10 +7,10 @@ import qs from 'qs'
  */
 const getBaseUrl = () => {
   // 환경설정 파일 분리 적용
-  const exclusive = process.env.VUE_APP_BASEURL_EXCLUSIVE
+  const tennisTogether = process.env.VUE_APP_BASEURL_TT
   const gateway = process.env.VUE_APP_BASEURL_GATEWAY
   console.log(process.env)
-  return { exclusive, gateway }
+  return { tennisTogether, gateway }
 }
 
 // Https Module
