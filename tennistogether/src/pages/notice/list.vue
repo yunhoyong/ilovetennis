@@ -1,6 +1,10 @@
 <template>
   <div class="hello">
    <!-- :presets.sync="defaultPresets" */ -->
+      <b-form-select v-model="selected" class="mb-3">
+      <b-form-select-option :value="''">전체</b-form-select-option>
+      <b-form-select-option value="a">퍼니피플</b-form-select-option>
+    </b-form-select>
    <label>게시기간 : </label>
   <v-md-date-range-picker
   :presets="selectPeriod"
@@ -20,6 +24,7 @@
 <script>
 import moment from 'moment'
 // import { rangePicker } from 'v-md-date-range-picker'
+// import VMdDateRangePicker from 'v-md-date-range-picker'
 
 function getRange (startOffset = 0, endOffset = 0, period = 'day') {
   return [
