@@ -1,8 +1,13 @@
 <template>
+    <header-comp
+        :data="menuList"
+      />
     <router-view/>
 </template>
 
 <script>
+import Header from '~/components/layout/Header'
+import VTop from '~/components/common/VTop.vue'
 
 export default {
   metaInfo () {
@@ -13,6 +18,8 @@ export default {
   name: 'Layout',
 
   components: {
+    HeaderComp: Header,
+    VTop
   },
   data: () => ({
     showMenu: true,

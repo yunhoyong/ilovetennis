@@ -9,7 +9,7 @@
     <b-collapse is-nav id="nav_collapse">
 
     <b-navbar-nav>
-      <b-nav-item href="#">경기일정</b-nav-item>
+      <b-nav-item href="/#/meeting/list">경기모임</b-nav-item>
       <b-nav-item href="/#/notice/list">공지사항</b-nav-item>
       <b-nav-item href="#" disabled>나의클럽</b-nav-item>
     </b-navbar-nav>

@@ -23,8 +23,6 @@
 
 <script>
 import moment from 'moment'
-// import { rangePicker } from 'v-md-date-range-picker'
-// import VMdDateRangePicker from 'v-md-date-range-picker'
 
 function getRange (startOffset = 0, endOffset = 0, period = 'day') {
   return [
