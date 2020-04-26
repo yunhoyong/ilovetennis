@@ -4,8 +4,8 @@ import routes from 'vue-auto-routing'
 import { createRouterLayout } from 'vue-router-layout'
 import Cookies from 'js-cookie'
 import store from './store'
+
 Vue.use(Router)
-console.log(routes)
 const RouterLayout = createRouterLayout(layout => {
   return import('@/layouts/' + layout + '.vue')
 })

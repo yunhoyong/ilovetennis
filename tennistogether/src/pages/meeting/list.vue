@@ -156,7 +156,6 @@ export default {
       }
 
       const [res, err] = await this.$https.get('/v1/exclusive/notice', params)
-      console.log(res)
       if (!err) {
         this.toDoItems = res.data.list
         this.toDoItems.map((items, idx) => {

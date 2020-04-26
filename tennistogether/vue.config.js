@@ -15,7 +15,7 @@ module.exports = {
     config.resolve.alias.set('~', path.join(__dirname, 'src'))
   },
 
-  transpileDependencies: [ansiRegex],
+  transpileDependencies: [ansiRegex, '@coreui/utils'],
 
   pluginOptions: {
     autoRouting: {

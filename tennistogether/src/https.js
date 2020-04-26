@@ -9,7 +9,6 @@ const getBaseUrl = () => {
   // 환경설정 파일 분리 적용
   const tennisTogether = process.env.VUE_APP_BASEURL_TT
   const gateway = process.env.VUE_APP_BASEURL_GATEWAY
-  console.log(process.env)
   return { tennisTogether, gateway }
 }
 
@@ -19,7 +18,6 @@ class Https {
     this.baseUrls = getBaseUrl()
 
     const defaultHeaders = {
-      'api-Key': '32afb4e2-231d-33c2-a23r-77fb7dbdb747'
     }
 
     this.defaultHeaders = defaultHeaders

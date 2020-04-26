@@ -1,41 +1,26 @@
 <template>
-  <div class="hello">
-   <!-- :presets.sync="defaultPresets" */ -->
-      <b-form-select v-model="selected" class="mb-3">
-      <b-form-select-option :value="''">전체</b-form-select-option>
-      <b-form-select-option value="a">퍼니피플</b-form-select-option>
-    </b-form-select>
-   <label>게시기간 : </label>
-  <v-md-date-range-picker
-  :presets="selectPeriod"
-  :showActivatorLabel=false
-  :pickerVisible=true></v-md-date-range-picker>
+  <div>
     <b-card
     header="클럽 공지사항"
-    style="max-width: 400rem; margin: auto; margin-top: 10vh;"
+    style="max-width: 400rem; margin: auto;"
     class="mb-2"
     border-variant="info"
     align="left">
-      <b-table striped hover :items="toDoItems" :fields="fields" sort-icon-left v-if="toDoItems && toDoItems.length"></b-table>
+      <b-table striped hover :items="toDoItems" :fields="fields" sort-icon-left></b-table>
   </b-card>
+  <router-link to="/notice/write">
+  <b-button variant="success">글쓰기</b-button>
+  </router-link>
   </div>
 </template>
 
 <script>
 import moment from 'moment'
 
-function getRange (startOffset = 0, endOffset = 0, period = 'day') {
-  return [
-    moment().subtract(startOffset, period).startOf(period),
-    moment().subtract(endOffset, period).endOf(period)
-  ]
-}
-
 export default {
   name: 'hello',
   layout: 'default',
   components: {
-    // VMdDateRangePicker
   },
   props: {
 
@@ -48,45 +33,10 @@ export default {
         size: 10,
         total: 0
       },
-      selectPeriod: [
-        {
-          label: '오늘',
-          range: getRange(0, 0)
-        },
-        {
-          label: '어제',
-          range: getRange(1, 1)
-        },
-        {
-          label: '지난 7일',
-          range: getRange(6, 0)
-        },
-        {
-          label: '지난 30일',
-          range: getRange(29, 0)
-        },
-        {
-          label: '이번달',
-          range: getRange(0, 0, 'month')
-        },
-        {
-          label: '저번달',
-          range: getRange(1, 1, 'month')
-        }
-      ],
       fields: [
         {
           key: 'noticeSerialNumber',
           label: 'No.',
-          sortable: true
-        },
-        {
-          key: 'fileYn',
-          label: '파일'
-        },
-        {
-          key: 'noticeGrade',
-          label: '구분',
           sortable: true
         },
         {
@@ -106,13 +56,13 @@ export default {
         },
         {
           key: 'noticeDt',
-          label: '게시기간',
+          label: '조회',
           sortable: true
           // variant: 'danger'
         },
         {
           key: 'noticeYn',
-          label: '공개여부',
+          label: '좋아요',
           sortable: true
           // variant: 'danger'
         }
@@ -134,7 +84,7 @@ export default {
       }
 
       const [res, err] = await this.$https.get('/v1/exclusive/notice', params)
-      console.log(res)
+      /* 임시 공지사항 데이터 추후 삭제 */
       if (!err) {
         this.toDoItems = res.data.list
         this.toDoItems.map((items, idx) => {

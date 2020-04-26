@@ -21,8 +21,8 @@
     </div> -->
     <div style="height: 100vh;">
       <div class="error-wrap">
-        <h2>페이지를 찾을 수 없습니다.</h2>
-        <h3>주소를 잘못 입력했거나 페이지가 이동했을 수 있습니다.</h3>
+        <h2>500 에러</h2>
+        <h3>서버 에러.</h3>
         <b-button
           type="primary"
           @click="goHome"
@@ -37,7 +37,7 @@
 <script>
 
 export default {
-  name: 'Error404',
+  name: 'Error505',
   layout: 'fullpage',
   methods: {
     goHome () {
