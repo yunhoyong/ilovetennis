@@ -11,6 +11,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 // import VMdDateRangePicker from 'v-md-date-range-picker'
 import CoreuiVue from '@coreui/vue'
 import { iconsSet as icons } from './assets/icons/icons.js'
+
 require('./plugins/date-picker')
 // Vue.use(VMdDateRangePicker)
 Vue.use(BootstrapVue)

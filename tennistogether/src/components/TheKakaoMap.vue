@@ -6,7 +6,7 @@
       :mapTypeId="mapTypeId"
       :libraries="libraries"
       @load="onLoad"
-      style="width:500px;height:400px;"/>
+      style="width:100%;height:400px;"/>
 </template>
 
 
@@ -15,9 +15,12 @@ import VueDaumMap from 'vue-daum-map'
 
 export default {
     name: 'TheKakaoMap',
+    components : {
+        VueDaumMap
+    },
     data: () => ({
-        appKey: 'ede4d4b51ec7b28bce9c6d183ba90e37', // 테스트용 appkey
-        center: {lat:33.450701, lng:126.570667}, // 지도의 중심 좌표
+        appKey: 'e8bdfb28473286f1ee25e68bde6ae19b', // 테스트용 appkey
+        center: {lat:37.412923, lng:127.125327}, // 지도의 중심 좌표
         level: 3, // 지도의 레벨(확대, 축소 정도),
         mapTypeId: VueDaumMap.MapTypeId.NORMAL, // 맵 타입
         libraries: [], // 추가로 불러올 라이브러리
@@ -26,7 +29,16 @@ export default {
     ,methods : {
         // 지도가 로드 완료되면 load 이벤트 발생
         onLoad (map) {
-            this.map = map
+                    // 지도의 현재 영역을 얻어옵니다
+        var bounds = map.getBounds();
+        // 영역정보를 문자열로 얻어옵니다. ((남,서), (북,동)) 형식입니다
+        var boundsStr = bounds.toString();
+        console.log('Daum Map Loaded', boundsStr);
+
+            this.mapObject = map;
+        },
+        onMapEvent (event, params) {
+            console.log(`Daum Map Event(${event})`, params);
         }
     }
 }

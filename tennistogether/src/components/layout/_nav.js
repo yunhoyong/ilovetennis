@@ -40,8 +40,8 @@ export default [
       },
       {
         _name: 'CSidebarNavItem',
-        name: '게시판',
-        to: '/notice/list',
+        name: '번개 모임',
+        to: '/meeting/list',
         icon: 'cil-people'
       },
       {

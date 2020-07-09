@@ -61,7 +61,7 @@
     align="left">
       <div id="map"></div>
       <b-table striped hover :items="toDoItems" :fields="fields" sort-icon-left v-if="toDoItems && toDoItems.length"></b-table>
-      <TheKakaoMap/>
+      <the-kakao-map/>
   </b-card>
   </div>
 </template>
@@ -69,11 +69,11 @@
 <script>
 import moment from 'moment'
 import TheKakaoMap from '~/components/TheKakaoMap'
-
 export default {
   name: 'hello',
   layout: 'default',
   components: {
+    TheKakaoMap
   },
   props: {
 
@@ -97,8 +97,8 @@ export default {
         { value: 'gt4.5', text: '4.5이상' }
       ],
       ruleForm: {
-        searchFromDt: moment(),
-        searchEndDt: moment()
+        searchFromDt: moment().format('YYYY-MM-DD'),
+        searchEndDt: moment().format('YYYY-MM-DD')
       },
       fields: [
         {
