@@ -27,14 +27,13 @@
         </b-form-select>
         </b-td>
         <b-td>
-        <b-form-input v-model="searchDistrict" placeholder="원하는지역을 입력해 주세요."></b-form-input>
+        <b-form-input placeholder="원하는지역을 입력해 주세요."></b-form-input>
         </b-td>
       </b-tr>
       <b-tr>
         <b-th>레벨 선택</b-th>
         <b-td colspan="2">
-            <b-form-checkbox-group id="checkbox-group-1" v-model="selected"
-            :options="levelOptions" name="flavour-1" >
+            <b-form-checkbox-group id="checkbox-group-1" :options="levelOptions" name="flavour-1" >
             </b-form-checkbox-group>
         </b-td>
       </b-tr>
@@ -60,13 +59,16 @@
     class="mb-2"
     border-variant="info"
     align="left">
+      <div id="map"></div>
       <b-table striped hover :items="toDoItems" :fields="fields" sort-icon-left v-if="toDoItems && toDoItems.length"></b-table>
+      <TheKakaoMap/>
   </b-card>
   </div>
 </template>
 
 <script>
 import moment from 'moment'
+import TheKakaoMap from '~/components/TheKakaoMap'
 
 export default {
   name: 'hello',
@@ -164,6 +166,12 @@ export default {
           // items.fileYn = BIconArrowDown
         })
       }
+    },
+    onContext(ctx) {
+        // The date formatted in the locale, or the `label-no-date-selected` string
+        this.formatted = ctx.selectedFormatted
+        // The following will be an empty string until a valid date is entered
+        this.selected = ctx.selectedYMD
     },
     update (values) {
       this.$router.push({

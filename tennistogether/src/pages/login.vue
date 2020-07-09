@@ -14,7 +14,7 @@
                       type="email"
                       v-model="form.email"
                       required
-                      placeholder="Enter email">
+                      placeholder="Enter Email">
         </b-form-input>
       </b-form-group>
       <b-form-group id="exampleInputGroup2"
@@ -24,7 +24,7 @@
                       type="password"
                       v-model="form.password"
                       required
-                      placeholder="Enter name">
+                      placeholder="Enter Password">
         </b-form-input>
       </b-form-group>
 

@@ -1,7 +1,8 @@
 const path = require('path')
 const ansiRegex = require('ansi-regex')
 module.exports = {
-  css: {
+  lintOnSave : false
+  ,css: {
     loaderOptions: {
       sass: {
         data: `

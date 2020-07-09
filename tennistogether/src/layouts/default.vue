@@ -25,7 +25,7 @@ import TheFooter from '~/components/layout/TheFooter'
 export default {
   metaInfo () {
     return {
-      title: 'TENNIS TOGETHER'
+      title: 'I LOVE TENNIS'
     }
   },
   name: 'Layout',
