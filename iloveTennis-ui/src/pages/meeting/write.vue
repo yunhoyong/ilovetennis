@@ -157,7 +157,7 @@ export default {
         noticeEndtDt: '20200202'
       }
 
-      const [res, err] = await this.$https.get('/v1/exclusive/notice', params)
+      const [res, err] = await this.$https.get('/v1/tennis/notice', params)
       if (!err) {
         this.toDoItems = res.data.list
         this.toDoItems.map((items, idx) => {

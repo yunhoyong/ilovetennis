@@ -83,7 +83,7 @@ export default {
         noticeEndtDt: '20200202'
       }
 
-      const [res, err] = await this.$https.get('/v1/exclusive/notice', params)
+      const [res, err] = await this.$https.get('/v1/tennis/notice', params)
       /* 임시 공지사항 데이터 추후 삭제 */
       if (!err) {
         this.toDoItems = res.data.list
