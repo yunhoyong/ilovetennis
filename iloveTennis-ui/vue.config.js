@@ -1,6 +1,7 @@
 const path = require('path')
 const ansiRegex = require('ansi-regex')
 module.exports = {
+  outputDir: '../iloveTennis-service/src/main/resources/static',
   lintOnSave : false
   ,css: {
     loaderOptions: {

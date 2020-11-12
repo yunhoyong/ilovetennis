@@ -54,7 +54,7 @@
     </b-table-simple>
     <b-button pill variant="primary">모임 검색</b-button>
     <b-card
-    header="번개모임"
+    :header="impromptu"
     style="max-width: 400rem; margin: auto; margin-top: 10vh;"
     class="mb-2"
     border-variant="info"
@@ -80,6 +80,7 @@ export default {
   },
   data: () => {
     return {
+      impromptu: '번개모임',
       toDoItems: [],
       pageInfo: {
         page: 1,
@@ -144,7 +145,26 @@ export default {
     }
   },
   created () {
-    this.getNoticeList()
+    this.getNoticeList();
+    if (navigator.geolocation) {
+            // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+            navigator.geolocation.getCurrentPosition(function(position) {
+            //this.lat = position.coords.latitude; // 위도
+            //this.lon = position.coords.longitude; // 경도
+            console.log("wirte created");
+            console.log(position);
+            console.log(position.coords.latitude);
+            console.log(position.coords.longitude);
+            TheKakaoMap.center ={lat:position.coords.latitude, lng:position.coords.longitude};
+            });
+    }else{
+        //this.center = {lat:37.412923, lng:127.125327};
+    }
+  },
+  computed: {
+    // reversedMessage: function(){//공부하기위한 소스
+    //   return this.impromptu.split('').reverse().join('')
+    // }
   },
   methods: {
     async getNoticeList () {
