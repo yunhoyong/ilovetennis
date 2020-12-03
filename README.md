@@ -3,6 +3,9 @@
 1. npm install
 2. yarn serve
 
+http://www.kmooc.kr/courses/course-v1:KAISTk+2018_K14+2020_K14_02/video
+
+
 도메인 주도 설계란	https://engineering-skcc.github.io/msa/DDD-WhatIsDdd/	Tech. blog
 Agile 프로세스에서의 마이크로서비스 설계/개발 공정	https://engineering-skcc.github.io/agile/microservice-agile/
 도메인 모델링	도메인 모델링 개요	https://github.com/CNAPS-MSA/CNAPS3/blob/master/contents/domain.md	CNAPS 3.0 Quick Guide
