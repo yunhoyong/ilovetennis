@@ -15,3 +15,5 @@ https://engineering-skcc.github.io/msa/DDD-StrategicDesign/
 이벤트 스토밍	https://engineering-skcc.github.io/microservice%20modeling/Event-Storming/
 마이크로서비스 도출기법	https://engineering-skcc.github.io/microservice%20modeling/microservice-도출기법/
 https://engineering-skcc.github.io/msa/최적의Microservice를도출하는-방법/
+
+https://join.slack.com/t/mis-bsd8900/shared_invite/zt-ipqank07-akOBpAyiFhYo4yRN1I2W4A
