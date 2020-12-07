@@ -16,4 +16,4 @@ https://engineering-skcc.github.io/msa/DDD-StrategicDesign/
 마이크로서비스 도출기법	https://engineering-skcc.github.io/microservice%20modeling/microservice-도출기법/
 https://engineering-skcc.github.io/msa/최적의Microservice를도출하는-방법/
 
-https://join.slack.com/t/mis-bsd8900/shared_invite/zt-ipqank07-akOBpAyiFhYo4yRN1I2W4A
+https://mail.partner.skcc.com/owa/redir.aspx?C=Kn25WTxDhUWVtdfVXccmnNiHzLXrn9gIn7lLA1ti5tA-6MFNjqc2VE1T3YxWFxHmpKAykPnUUtw.&URL=https%3a%2f%2fgo.slack.com%2fget-started%2fenQtMTU1MDgyNDQ2NTYyMS1mNTcyNDk1ZjE2NzBjMWEzN2YxYWU4ZWE2YWVkOGIxMWVlOWJjMzlhNmVkZDliMTQ0NTA3OTgyMzM4YjgwNTFl%3fe%3dMjAwMDQ1OUBwYXJ0bmVyLnNrY2MuY29t%26i%3ddefault%26m%3dslack%26x%3dx-a1550824482725
