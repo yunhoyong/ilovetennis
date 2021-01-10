@@ -6,8 +6,13 @@
     class="mb-2"
     border-variant="info"
     align="left">
+      <b-row>
+        <b-col md="auto">
+          <b-calendar v-model="value" @context="onContext" locale="en-US"></b-calendar>
+        </b-col>
+      </b-row>
       <b-table striped hover :items="toDoItems" :fields="fields" sort-icon-left></b-table>
-  </b-card>
+    </b-card>
   <router-link to="/notice/write">
   <b-button variant="success">글쓰기</b-button>
   </router-link>
@@ -27,11 +32,14 @@ export default {
   },
   data: () => {
     return {
-      toDoItems: [],
+      toDoItems: [{ noticeSerialNumber: 1, noticeTitle: '제목1', userName: '등록자1', regDate: '201812210820',viewCnt : 10 },
+                  { noticeSerialNumber: 2, noticeTitle: '제목2', userName: '등록자2', regDate: '201812210820',viewCnt : 20 },
+                  { noticeSerialNumber: 3, noticeTitle: '제목3', userName: '등록자3', regDate: '201812210820',viewCnt : 30 },
+                  { noticeSerialNumber: 4, noticeTitle: '제목4', userName: '등록자4', regDate: '201812210820',viewCnt : 40 }],
       pageInfo: {
         page: 1,
         size: 10,
-        total: 0
+        total: 10
       },
       fields: [
         {
@@ -55,14 +63,8 @@ export default {
           sortable: false
         },
         {
-          key: 'noticeDt',
-          label: '조회',
-          sortable: true
-          // variant: 'danger'
-        },
-        {
-          key: 'noticeYn',
-          label: '좋아요',
+          key: 'viewCnt',
+          label: '조회수',
           sortable: true
           // variant: 'danger'
         }

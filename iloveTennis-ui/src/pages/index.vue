@@ -9,6 +9,19 @@
   </div>
 </template>
 
+
 <script>
+export default {
+  
+
+}
+
+let param1 = 'hoyong';
+console.log(param1);
+
+param1 = 'hoyong2';
+
+let helloMan = `hello ${param1}`;
+console.log(param1);
 
 </script>
