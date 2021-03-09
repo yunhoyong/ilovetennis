@@ -10,4 +10,6 @@ public class Stadium {
     private long id;
 
     private String name;
+
+    private String location;
 }

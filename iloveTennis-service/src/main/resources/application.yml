@@ -1,22 +1,3 @@
-server:
-  port: 8080
 spring:
-  h2:
-    console:
-      enabled: true  # H2 웹 콘솔을 사용하겠다는 의미
-      path: /test_db  # 콘솔의 경로
-  data:
-    rest:
-      base-path: /api
-
-springdoc:
-  api-docs:
-    path: /api-docs
-    groups:
-      enable: true
-  swagger-ui:
-    operations-sorter: alpha
-    tags-sorter: alpha
-    path: /swagger-ui.html
-    disable-swagger-default-url: true
-    display-query-params-without-oauth2: true
+  profiles:
+    active: local
