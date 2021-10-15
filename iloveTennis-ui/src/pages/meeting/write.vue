@@ -145,20 +145,16 @@ export default {
     }
   },
   created () {
-    this.getNoticeList();
+    this.getNoticeList()
     if (navigator.geolocation) {
-            // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-            navigator.geolocation.getCurrentPosition(function(position) {
-            //this.lat = position.coords.latitude; // 위도
-            //this.lon = position.coords.longitude; // 경도
-            console.log("wirte created");
-            console.log(position);
-            console.log(position.coords.latitude);
-            console.log(position.coords.longitude);
-            TheKakaoMap.center ={lat:position.coords.latitude, lng:position.coords.longitude};
-            });
-    }else{
-        //this.center = {lat:37.412923, lng:127.125327};
+      // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+      navigator.geolocation.getCurrentPosition(function (position) {
+        this.lat = position.coords.latitude // 위도
+        this.lon = position.coords.longitude // 경도
+        TheKakaoMap.center = { lat: position.coords.latitude, lng: position.coords.longitude }
+      })
+    } else {
+      this.center = { lat: 37.412923, lng: 127.125327 }
     }
   },
   computed: {
@@ -187,11 +183,11 @@ export default {
         })
       }
     },
-    onContext(ctx) {
-        // The date formatted in the locale, or the `label-no-date-selected` string
-        this.formatted = ctx.selectedFormatted
-        // The following will be an empty string until a valid date is entered
-        this.selected = ctx.selectedYMD
+    onContext (ctx) {
+      // The date formatted in the locale, or the `label-no-date-selected` string
+      this.formatted = ctx.selectedFormatted
+      // The following will be an empty string until a valid date is entered
+      this.selected = ctx.selectedYMD
     },
     update (values) {
       this.$router.push({

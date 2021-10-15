@@ -1,9 +1,9 @@
 package com.hoyong.ilote.stadium;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
+@Entity
 public class Stadium {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -12,4 +12,7 @@ public class Stadium {
     private String name;
 
     private String location;
+
+    @ElementCollection
+    private List<CourtCount> CourtCountList;
 }

@@ -1,10 +1,25 @@
 server:
-  port: 8080
+  port: 1685
+
 spring:
-  h2:
-    console:
-      enabled: true  # H2 웹 콘솔을 사용하겠다는 의미
-      path: /test_db  # 콘솔의 경로
+  datasource:
+    hikari:
+      jdbc-url: jdbc:log4jdbc:postgresql://127.0.0.1:5432/postgres
+      driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+      username: postgres
+      password: 1234
+    platform: postgres
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: com.github.alexliesenfeld.querydsl.jpa.hibernate.PostgreSQLJsonDialect
+        default_schema: public
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
   data:
     rest:
       base-path: /api

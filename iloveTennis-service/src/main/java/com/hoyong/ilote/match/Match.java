@@ -55,5 +55,6 @@ public class Match {
     @Embedded
     private RequiredThings required;
 
-    private Long stadiumId;
+    @OneToOne
+    private Stadium stadium;
 }
