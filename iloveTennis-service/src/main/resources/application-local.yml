@@ -1,25 +1,23 @@
 server:
-  port: 1685
-
+  port: 3000
+#jdbc:mysql://localhost:3306?useUnicode=true&characterEncoding=utf-8
 spring:
   datasource:
-    hikari:
-      jdbc-url: jdbc:log4jdbc:postgresql://127.0.0.1:5432/postgres
-      driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-      username: postgres
-      password: 1234
-    platform: postgres
+      url: jdbc:mariadb://127.0.0.1:3306/ilovetennis?characterEncoding=utf-8
+      driver-class-name: org.mariadb.jdbc.Driver
+      username: root
+      password: 1685
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: false
-    open-in-view: false
-    properties:
-      hibernate:
-        dialect: com.github.alexliesenfeld.querydsl.jpa.hibernate.PostgreSQLJsonDialect
-        default_schema: public
-    generate-ddl: true
     hibernate:
       ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDB103Dialect
+        format_sql: true
+        default_schema: public
+        show-sql: false
+    generate-ddl: true
+
   data:
     rest:
       base-path: /api
